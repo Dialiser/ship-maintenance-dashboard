@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# 🛠️ Ship Maintenance Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive React application to manage ships, components, and maintenance jobs with KPI analytics, chart visualizations, job scheduling, and in-app notifications. Built using React, Context API, and localStorage for persistence.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Setup & Installation
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js >= 14
+- npm or yarn
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Steps
 
-### `npm test`
+```bash
+# Clone the repository
+git clone https://github.com/your-username/ship-maintenance-dashboard.git
+cd ship-maintenance-dashboard
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Install dependencies
+npm install
 
-### `npm run build`
+# Start the development server
+npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🧩 Application Architecture Overview
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+src/
+├── components/            # Reusable UI components
+│   ├── Authentication/    # LoginForm
+│   ├── Dashboard/         # KPICards, Charts
+│   ├── Ships/             # ShipList, ShipForm, ShipDetail
+│   ├── Components/        # ComponentList, ComponentForm
+│   ├── Jobs/              # JobList, JobForm, JobCalendar
+│   ├── Notifications/     # NotificationCenter
+├── contexts/              # Global state using React Context API
+│   ├── AuthContext.jsx
+│   ├── ShipsContext.jsx
+│   ├── ComponentsContext.jsx
+│   ├── JobsContext.jsx
+├── pages/                 # Route-level pages
+│   ├── LoginPage.jsx
+│   ├── DashboardPage.jsx
+│   ├── ShipsPage.jsx
+│   ├── ShipDetailPage.jsx
+│   ├── JobsPage.jsx
+├── utils/                 # Utility functions
+│   ├── localStorageUtils.js
+│   ├── roleUtils.js
+├── styles/                # Custom global styles
+│   └── main.css
+├── App.jsx                # Main application and route config
+└── index.js               # Entry point
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+📋 Features
+✅ User Authentication with dummy login (via AuthContext)
 
-### `npm run eject`
+🛳️ Ship Management: Add, edit, delete ships
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+⚙️ Component Management: Attach components to ships, view last maintenance
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+🔧 Job Management: Create jobs, assign priority/status, filter by ship
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+📅 Maintenance Calendar: View scheduled jobs by day
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+📈 Dashboard: KPI cards + charts (Bar & Pie)
 
-## Learn More
+🔔 In-App Notifications: Toasts on job actions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+💾 Data Persistence via localStorage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+📱 Responsive Design using Tailwind CSS
 
-### Code Splitting
+🧠 Technical Decisions
+React Context API was chosen for global state (no Redux needed for small app).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+localStorage used to persist data without backend or DB.
 
-### Analyzing the Bundle Size
+Recharts selected for KPI visualizations (lightweight and customizable).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Tailwind CSS used for rapid, responsive styling with minimal CSS files.
 
-### Making a Progressive Web App
+Dynamic Routing with React Router for detail/edit pages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+⚠️ Known Issues / Limitations
+❗ No real user authentication (mock login via AuthContext)
 
-### Advanced Configuration
+❗ No backend API or database — all data is lost if localStorage is cleared
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+📅 Calendar view is basic and does not support drag/drop or sync
 
-### Deployment
+🔐 Role-based access not fully implemented yet (structure is ready in roleUtils.js)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+🧪 No formal tests or CI pipeline yet
 
-### `npm run build` fails to minify
+✨ Future Enhancements (Ideas)
+Add user roles: Admin vs Engineer vs Viewer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Backend API with authentication and real database (MongoDB / PostgreSQL)
+
+Real-time updates using WebSockets
+
+Export reports as PDF/CSV
+
+Notifications with sound/badge support
+
+📄 License
+This project is licensed under the MIT License.
+
+🙌 Acknowledgments
+React.js
+
+Recharts
+
+Tailwind CSS
+
+React Calendar
+
+yaml
